@@ -36,6 +36,21 @@ namespace satdump
     class TLERegistry : public std::vector<TLE>
     {
     public:
+        std::optional<TLE> get_from_name(std::string name)
+        {
+            std::vector<TLE>::iterator it = std::find_if(begin(),
+                                                         end(),
+                                                         [&name](const TLE &e)
+                                                         {
+                                                             return e.name == name;
+                                                         });
+
+            if (it != end())
+                return std::optional<TLE>(*it);
+            else
+                return std::optional<TLE>();
+        };
+
         std::optional<TLE> get_from_norad(int norad)
         {
             std::vector<TLE>::iterator it = std::find_if(begin(),

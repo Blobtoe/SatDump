@@ -5,6 +5,7 @@
 #include "app.h"
 #include "viewer/viewer.h"
 #include "recorder/recorder.h"
+#include "automatic/automatic.h"
 #include "common/tile_map/map.h"
 
 namespace satdump
@@ -16,6 +17,7 @@ namespace satdump
 
     extern bool light_theme;
 
+    extern std::shared_ptr<AutomaticApplication> automatic_app;
     extern std::shared_ptr<RecorderApplication> recorder_app;
     extern std::shared_ptr<ViewerApplication> viewer_app;
 

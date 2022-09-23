@@ -24,6 +24,7 @@ namespace satdump
 {
     std::shared_ptr<RecorderApplication> recorder_app;
     std::shared_ptr<ViewerApplication> viewer_app;
+    std::shared_ptr<AutomaticApplication> automatic_app;
 
     bool in_app = false; // true;
 
@@ -57,6 +58,7 @@ namespace satdump
 
         recorder_app = std::make_shared<RecorderApplication>();
         viewer_app = std::make_shared<ViewerApplication>();
+        automatic_app = std::make_shared<AutomaticApplication>();
     }
 
     void exitMainUI()
@@ -132,6 +134,11 @@ namespace satdump
                 if (ImGui::BeginTabItem("Viewer"))
                 {
                     viewer_app->draw();
+                    ImGui::EndTabItem();
+                }
+                if (ImGui::BeginTabItem("Automatic"))
+                {
+                    automatic_app->draw();
                     ImGui::EndTabItem();
                 }
 #if 0
